@@ -1,2 +1,2 @@
 # Module-18-noSQL
-My noSWL challenge
+My noSQL challenge
