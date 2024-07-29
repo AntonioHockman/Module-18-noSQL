@@ -1,7 +1,9 @@
 const express = require('express');
 const db = require('./config/connection');
+const routes = require('./routes');
+
 // Require model
-const { Department } = require('./models');
+// const { Department } = require('./models');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -9,17 +11,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Finds all departments
-app.get('/socialMedia', async (req, res) => {
-  try {
-    // Using model in route to find all documents that are instances of that model
-    const result = await Department.find({});
-    res.status(200).send(result);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send(err);
-  }
-});
 
 db.once('open', () => {
   app.listen(PORT, () => {
